@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background-image: url('background_image.jpg'); Specify the path to your background image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Add opacity to make the container semi-transparent */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            max-width: 90%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        /* CSS Animation for looping your name */
+        @keyframes moveName {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .your-name {
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            animation: moveName 10s linear infinite; /* Adjust animation duration and timing as needed */
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Your name looping in the background -->
+    <div class="your-name">Guneet Singh</div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        {% if error %}
+            <p style="color: red;" class="error">{{ error }}</p>
+        {% endif %}
+        <form action="/login" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required oninput="checkPasswordStrength(this.value)">
+            <span id="passwordStrength" style="color: red;"></span><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="/register">Register</a></p>
+    
+        <script>
+            function checkPasswordStrength(password) {
+                var strengthText = document.getElementById('passwordStrength');
+                var strongRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})');
+    
+                if (strongRegex.test(password)) {
+                    strengthText.textContent = 'Strong password';
+                    strengthText.style.color = 'green';
+                } else {
+                    strengthText.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit';
+                    strengthText.style.color = 'red';
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

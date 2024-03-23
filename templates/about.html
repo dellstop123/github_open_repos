@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+       
+        .profile-image {
+            max-width: 200px; /* Set maximum width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        html, body {
+            height: 100%;
+        }
+        .wrapper {
+            min-height: 100%;
+            margin-bottom: -50px; /* Height of the footer */
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+     <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Github Open Source</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <section id="contact" class="mt-4">
+    <div class="container">
+        <h1 class="mt-5">About Me</h1>
+        <div class="card">
+            <img src="{{ url_for('static', filename=profile.image) }}" class="card-img-top profile-image" alt="Profile Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ profile.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ profile.email }}</h6>
+                <p class="card-text">{{ profile.bio }}</p>
+                <a href="{{ profile.linkedin }}"><p class="card-text">LinkedIn Account Details</p></a>
+                <a href="{{ profile.topmate}}"><p class="card-text">Book 1:1 Consultation</p></a>
+                <!-- Add more profile details as needed -->
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Github Open Source. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
