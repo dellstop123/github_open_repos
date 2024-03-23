@@ -124,7 +124,7 @@ packaging==21.3
 pandas==2.2.0
 parsel==1.6.0
 pdfminer.six==20181108
-Pillow==9.0.1
+Pillow==10.2.0
 pluggy==0.13.1
 preshed==3.0.9
 Protego==0.1.16
