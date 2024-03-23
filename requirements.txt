@@ -166,7 +166,7 @@ ruamel.yaml==0.17.17
 ruamel.yaml.clib==0.2.6
 scikit-learn==1.4.0
 scipy==1.12.0
-Scrapy==2.4.1
+Scrapy==2.11.1
 selenium==3.141.0
 service-identity==18.1.0
 shuup==2.10.2
